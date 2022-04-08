@@ -32,32 +32,6 @@ pipeline {
             }
         }
 
-        stage('Docker Login'){
-            
-            steps {
-                 withCredentials([string(credentialsId: 'cfyadftr', variable: 'j6yRtqwRMcZAKkt')]) {
-                    sh "docker login -u cfyadftr -p ${j6yRtqwRMcZAKkt}"
-                }
-            }                
-        }
-
-        stage('Docker Push'){
-            steps {
-                sh 'docker push cfyadftr/docker_jenkins_pipeline:${BUILD_NUMBER}'
-            }
-        }
         
-        stage('Docker deploy'){
-            steps {
-                sh 'docker run -itd -p 3000:3000 cfyadftr/springboot:0.0.3'
-            }
-        }
-
-        
-        stage('Archving') { 
-            steps {
-                 archiveArtifacts '**/target/*.jar'
-            }
-        }
     }
 }
