@@ -28,13 +28,13 @@ pipeline {
 
         stage('Build Docker image'){
             steps {
-                sh 'docker build -t cfyadftr/docker_jenkins_pipeline:${BUILD_NUMBER} .'
+                sh 'docker build -t nhtrbs/docker_jenkins_pipeline:${BUILD_NUMBER} .'
             }
         }
 
         stage('Docker Push'){
             steps {
-                sh 'docker push cfyadftr/docker_jenkins_pipeline:${BUILD_NUMBER}'
+                sh 'docker push nhtrbs/docker_jenkins_pipeline:${BUILD_NUMBER}'
             }
         }
         
