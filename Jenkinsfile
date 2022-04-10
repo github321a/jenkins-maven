@@ -34,7 +34,7 @@ pipeline {
 
         stage('Docker Push'){
             steps {
-                sh 'docker push anvbhaskar/docker_jenkins_pipeline:${BUILD_NUMBER}'
+                sh 'docker push cfyadftr/docker_jenkins_pipeline:${BUILD_NUMBER}'
             }
         }
         
