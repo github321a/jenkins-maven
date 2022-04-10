@@ -32,10 +32,13 @@ pipeline {
             }
         }
 
-        stage('Docker Push'){
+        stage('Docker Login'){
+            
             steps {
-                sh 'docker push nhtrbs/docker_jenkins_pipeline:${BUILD_NUMBER}'
-            }
+                 withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
+                    sh "docker login -u nhtrbs -p ${Dockerpwd}"
+                }
+            }                
         }
         
     }
