@@ -32,13 +32,10 @@ pipeline {
             }
         }
 
-        stage('Docker Login'){
-            
+        stage('Docker Push'){
             steps {
-                 withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
-                    sh "docker login -u cfyadftr -p ${Dockerpwd}"
-                }
-            }                
+                sh 'docker push anvbhaskar/docker_jenkins_pipeline:${BUILD_NUMBER}'
+            }
         }
         
     }
