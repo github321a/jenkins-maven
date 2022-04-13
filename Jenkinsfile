@@ -34,7 +34,7 @@ pipeline {
 
         stage('Docker deploy'){
             steps {
-                sh 'docker run -itd -p 3000:3000 nhtrbs/springboot:0.0.3'
+                sh 'docker run -itd -p 3000:3000 nhtrbs/docker_jenkins_pipeline:${BUILD_NUMBER}'
             }
         }
         
